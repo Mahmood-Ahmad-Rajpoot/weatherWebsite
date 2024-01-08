@@ -1,0 +1,22 @@
+:root {
+  margin: 0;
+  padding: 0;
+  /* font */
+  --main-font-family: "Dancing Script", cursive;
+  --secondary-font: "Fira Sans";
+/* colors */
+  --color-yellow: #ffbe33;
+  --white-color: white;
+  --bg-color: #222831;
+  --item-bg:#f1f2f3;
+  --color-white: white;
+  --color-black:black;
+  /* font size */
+  --primary-size:2rem;
+  /* weather web site */
+  --weather-primary-color:#161b5f;
+  --weather-secondary-color:#9d91e3;
+}
+.appStyles {
+  width: 100%;
+}
