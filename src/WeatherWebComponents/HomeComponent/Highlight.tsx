@@ -60,7 +60,7 @@ const Highlight = () => {
           );
         })}
       </div>
-      <Graph chartData={chartData} />
+      {/* <Graph chartData={chartData} /> */}
     </div>
   );
 };
