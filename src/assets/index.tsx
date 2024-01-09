@@ -19,8 +19,14 @@ import weAreFeane from "./weAreFeane.png";
 import bridge from "./bridge.jpg";
 import rainy from "./rainy.svg";
 import sunny from "./sunny.svg";
+import cloudy from "./cloudy.svg";
+import fog from "./fog.svg";
+import hail from "./hail.svg";
+import rain from "./rainy.svg";
+
 
 export {
+  cloudy, fog, hail, rain,
   rainy,
   sunny,
   bridge,

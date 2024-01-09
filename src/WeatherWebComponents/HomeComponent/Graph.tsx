@@ -1,4 +1,4 @@
-import React, {useEffect,useRef} from "react";
+// import React, {useEffect,useRef} from "react";
 import { Line } from "react-chartjs-2";
 interface getProp{
   chartData:any,

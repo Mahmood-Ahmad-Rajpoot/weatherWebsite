@@ -4,14 +4,13 @@ import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-// import MicNoneIcon from "@mui/icons-material/MicNone";
-// import { Container } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+
 import { Button } from "antd";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+ import { useDispatch , useSelector} from "react-redux";
 import { setNav } from "../../features/NavController";
 // searchBar styles
 const Search = styled("div")(({ theme }) => ({
@@ -38,15 +37,13 @@ const Search = styled("div")(({ theme }) => ({
   },
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({}));
+const StyledInputBase = styled(InputBase)(() => ({}));
 
 // import './second.scss'
 const SearchBar = () => {
-  const [ham, setHam] = useState<boolean>(true);
-  const { show } = useSelector((s: any) => {
-    console.log(typeof s);
-    return s.navController;
-  });
+  // const [ham, setHam] = useState<boolean>(true);
+  const { show } = useSelector((s: any) => s.navController)
+  
   const dispatch = useDispatch();
   return (
     <div className="flex w-full  justify-between h-auto items-baseline pb-3 pl-3">
@@ -54,9 +51,10 @@ const SearchBar = () => {
         onClick={() => dispatch(setNav())}
         shape="circle"
         type="link"
-        className=" sm:hidden bg-[--weather-primary-color] text-[--color-white]  flex justify-center items-center"
+        className={`${show&& 'z-[9999] ml-[150px] ' }  sm:hidden bg-[--weather-primary-color] text-[--color-white]  flex justify-center items-center`}
       >
-        <MenuIcon className="sm:hidden flex " />
+     { !show?  <MenuIcon className="sm:hidden flex " />:<CloseIcon/>}
+        
       </Button>
       <Search className="px-2 w-1/2">
         <div className=" w-full  flex ">

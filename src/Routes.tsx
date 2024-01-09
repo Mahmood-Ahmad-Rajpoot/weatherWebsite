@@ -1,5 +1,4 @@
-import React from "react";
-
+ 
 //  react router dom
 import { BrowserRouter, Routes, Route } from "react-router-dom";
  // weather

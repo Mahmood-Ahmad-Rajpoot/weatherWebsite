@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-const initialState = {
+interface objectType{
+    show:boolean
+}
+const initialState: objectType = {
     show:false,
 }
 const navController=createSlice({

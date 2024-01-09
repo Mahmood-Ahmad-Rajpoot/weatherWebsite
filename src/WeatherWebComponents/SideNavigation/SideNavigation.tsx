@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Styles from "./sidenav.module.css";
 import ExploreIcon from "@mui/icons-material/Explore";
@@ -7,14 +7,12 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import TrackChangesIcon from "@mui/icons-material/TrackChanges";
-import { useDispatch, useSelector } from "react-redux";
-import { Button } from "antd";
-import CloseIcon from "@mui/icons-material/Close";
-import { setNav } from "../../features/NavController";
+import {   useSelector } from "react-redux";
+ 
 
 const SideNavigation = () => {
   const { show } = useSelector((s: any) => s.navController);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // links styles
   const linkStyles = ({ isActive }: any) => {
@@ -30,18 +28,12 @@ const SideNavigation = () => {
 
   return (
     <div className=" ">
-      {show &&
-      <Button
-          onClick={() => dispatch(setNav())}
-          
-           className="w-[200px] bg-[--weather-primary-color] flex sm:hidden hover:text-[--weather-secondary-color]  text-[--color-white] justify-center items-center"
-        >
-          <CloseIcon className="sm:hidden flex " />
-        </Button>}  
+      
+    
       <div
-        className={`w-[200px] z-50   fixed hidden sm:flex  flex-col ${
-          show ? "!flex": "!hidden" 
-        } justify-center items-center h-[100vh]  bg-[--weather-primary-color] min-h-100vh w-[200px]  gap-[100px]   `}
+        className={`w-[200px] z-50   fixed   flex-col ${
+          show ? "flex": "hidden  sm:flex" 
+        }  justify-center items-center h-[100vh]  bg-[--weather-primary-color] min-h-100vh  gap-[100px]   `}
       >
        
        

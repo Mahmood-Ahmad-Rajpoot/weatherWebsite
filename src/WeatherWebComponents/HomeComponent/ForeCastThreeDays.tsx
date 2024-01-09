@@ -1,13 +1,43 @@
 // import React from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { rainy,  } from "../../assets";
+import { rainy } from "../../assets";
+import { useSelector } from "react-redux";
+import { findMax, findMin } from "../getWeatherData/returnMaxMin";
 
 const ForeCastThreeDays = () => {
-  const foreCast = [
-    { day: "Thursday", weather: "Rain" },
-    { day: "Friday", weather: "Sunny" },
-    { day: "Saturday", weather: "Cloudy" },
+  const { hourlyTemperature: temperature } = useSelector(
+    (store: any) => store.currentWeather
+  );
+  const today = new Date();
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+   const foreCast = [
+    {
+      day: daysOfWeek[today.getDay() + 1],
+      weather: "Rain",
+      max: findMax(temperature.slice(0, 23)),
+      min: findMin(temperature.slice(0, 23)),
+    },
+    {
+      day: daysOfWeek[today.getDay() + 2],
+      weather: "Sunny",
+      max: findMax(temperature.slice(24, 47)),
+      min: findMin(temperature.slice(24, 47)),
+    },
+    {
+      day: daysOfWeek[today.getDay() + 3],
+      weather: "Cloudy",
+      max: findMax(temperature.slice(48, 71)),
+      min: findMin(temperature.slice(48, 71)),
+    },
   ];
   return (
     <div className="p-3">
@@ -21,13 +51,15 @@ const ForeCastThreeDays = () => {
               } flex  border rounded-lg w-full h-[50px]`}
             >
               <span className=" flex items-center justify-center bg-[--weather-secondary-color] gap-1 rounded-lg w-1/2">
-                <ArrowDownwardIcon className="text-[--weather-primary-color]" />{" "}
+                <ArrowDownwardIcon className="text-[--weather-primary-color]" />
                 <p>
-                  20<sup>o</sup>
+                  {d.min}
+                  <sup>o</sup>
                 </p>
                 <ArrowUpwardIcon className="text-[--weather-primary-color]" />{" "}
                 <p>
-                  10<sup>o</sup>
+                  {d.max}
+                  <sup>o</sup>
                 </p>
               </span>
               <div className="flex w-1/2 justify-center items-center  gap-2">
