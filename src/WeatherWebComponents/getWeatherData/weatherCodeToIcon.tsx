@@ -11,7 +11,7 @@ export const convertWeatherCode =(code:number)=> {
         { code:4, name:'fog', icon:fog },
         { code:45,name:'Hail ', icon:hail },
     ]
- const data =  weatherCodeIcon.find((d, i) => d.code===code)
+ const data =  weatherCodeIcon.find((d) => d.code===code)
 return data;
 }
  
