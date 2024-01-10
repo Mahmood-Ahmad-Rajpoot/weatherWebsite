@@ -56,7 +56,7 @@ const SearchBar = () => {
      { !show?  <MenuIcon className="md:hidden flex " />:<CloseIcon/>}
         
       </Button>
-      {/* <Search className="px-2 w-1/2">
+      <Search className="px-2 w-1/2">
         <div className=" w-full  flex ">
           <StyledInputBase
             className=""
@@ -77,7 +77,7 @@ const SearchBar = () => {
         <IconButton>
           <AccountCircleIcon />
         </IconButton>
-      </div> */}
+      </div>
     </div>
   );
 };

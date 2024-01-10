@@ -1,14 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getWeather } from "../WeatherWebComponents/getWeatherData/getWeatherData";
-import { convertTimestampToTime } from "../WeatherWebComponents/getWeatherData/convertTimeStamp";
+ import { convertTimestampToTime } from "../WeatherWebComponents/getWeatherData/convertTimeStamp";
 
-interface OptionType {
-  timeZone: string;
-  hour: "numeric" | "2-digit";
-  minute: "numeric" | "2-digit";
-  hour12: boolean;
-}
-
+// interface OptionType {
+//   timeZone: string;
+//   hour: "numeric" | "2-digit";
+//   minute: "numeric" | "2-digit";
+//   hour12: boolean;
+// }
 // interface ObjectTypes{
 //   apparentTemperature: number;
 //   temperature: number;
@@ -68,13 +66,6 @@ const currentWeather:any = createSlice({
       state.index = action.payload;
     },
 
-    addAnotherCity: (_, action) => {
-      console.log("logging");
-
-      getWeather(75, 25, `Asia/${action.payload}`);
-      console.log("logging2");
-    },
-
     setCurrentDetails: (state, action) => {
       const today = new Date();
       const {
@@ -97,12 +88,7 @@ const currentWeather:any = createSlice({
       } = action.payload;
        
       // city date time
-      const options: OptionType = {
-        timeZone: timeZone,
-        hour: "numeric",
-        minute: "numeric",
-        hour12: true,
-      };
+      
       // const cityTime = new Date().toLocaleTimeString("en-US", options);
       const daysOfWeek = [
         "Sunday",
@@ -144,10 +130,9 @@ const currentWeather:any = createSlice({
       }
       //   state = action.payload;
 
-      //   console.log('apparent:',typeof (weatherCode));
-    },
+     },
   },
 });
-export const { setCurrentDetails, addAnotherCity, setCityIndex } =
+export const { setCurrentDetails, setCityIndex } =
   currentWeather.actions;
 export default currentWeather.reducer;

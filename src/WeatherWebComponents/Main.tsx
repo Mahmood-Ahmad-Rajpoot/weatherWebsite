@@ -5,7 +5,7 @@ import { getWeather } from "./getWeatherData/getWeatherData";
 
 const Main = () => {
   const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
-  console.log(timeZone);
+ 
 
    getWeather(74, 31, timeZone)
   return (

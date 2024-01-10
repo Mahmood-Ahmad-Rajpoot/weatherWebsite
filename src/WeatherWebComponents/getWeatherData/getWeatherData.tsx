@@ -30,7 +30,7 @@ export const getWeather = async (
     .then((r) => r.data)
     .catch((err) => console.log(err));
 
-  console.log(data);
+ 
 
   const { current, daily, hourly } = data;
   const {time:cityCurrentTime} = current
@@ -40,9 +40,6 @@ export const getWeather = async (
     time: hourlyTime,
     temperature_2m: hourlyTemperature,
   } = hourly;
-
-  // const { current, daily } = data;
-  // console.log(daily);
 
   // destructuring the object
   const { sunrise, sunset } = daily;

@@ -19,7 +19,6 @@ import { setCityIndex } from "../../features/currentWeather";
   };
  
  
-  // console.log(temperature, timeZone,);
   return (
     <div className=" min-w-[70%] grow p-3 ">
       <p className="text-[0.8rem] text-grey  font-semibold mb-2">
@@ -27,7 +26,7 @@ import { setCityIndex } from "../../features/currentWeather";
       </p>
       <div className="flex flex-wrap gap-3  ">
         {cities.map((d: any, ind: number) => {
-          console.log(ind,'n:',d);
+        
           
           return (
             <div key={ind} className="grow">

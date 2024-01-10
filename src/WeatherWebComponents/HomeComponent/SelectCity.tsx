@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import   { useState } from "react";
 import { Button, Modal, Select } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { setOpen } from "../../features/selectCityModal";
@@ -16,9 +16,7 @@ const SelectCity = () => {
     setCity(value);
   };
 
-  const onSearch = (value: string) => {
-    console.log("search:", value);
-  };
+ 
 
   const handleAdd = () => {
     if (city) {
@@ -65,10 +63,8 @@ wind_speed_10m&daily=weather_code&timeformat=unixtime&past_days=1&forecast_days=
       });
 
       const data = response.data;
-      console.log(data, ":dattatatatta");
-// dispatch actions
-
     
+// dispatch actions
   const { current, daily, hourly } = data;
   const {time:cityCurrentTime} = current
   // rain and time hourly
@@ -77,9 +73,6 @@ wind_speed_10m&daily=weather_code&timeformat=unixtime&past_days=1&forecast_days=
     time: hourlyTime,
     temperature_2m: hourlyTemperature,
   } = hourly;
-
-  // const { current, daily } = data;
-  // console.log(daily);
 
   // destructuring the object
   const { sunrise, sunset } = daily;
@@ -137,7 +130,7 @@ wind_speed_10m&daily=weather_code&timeformat=unixtime&past_days=1&forecast_days=
         placeholder="Select City"
         optionFilterProp="children"
         onChange={onChange}
-        onSearch={onSearch}
+      
         filterOption={filterOption}
         options={pakistanCities}
       />
