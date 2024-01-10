@@ -43,8 +43,8 @@ const SideNavigation = () => {
             className={Styles.navLinksStyles}
             style={linkStyles}
           >
-            <span className="flex gap-2 ">
-              <HomeIcon /> <li>Home</li>
+            <span className={Styles.span1 + " flex gap-2 "}>
+              <HomeIcon /> <li className={Styles.li1}>Home</li>
             </span>
           </NavLink>
           <NavLink
@@ -52,8 +52,8 @@ const SideNavigation = () => {
             style={linkStyles}
             to={"./Forecast"}
           >
-            <span className="flex gap-2">
-              <ExploreIcon /> <li>Forecast</li>
+            <span  className={Styles.span1 + " flex gap-2 "}>
+              <ExploreIcon /> <li className={Styles.li1}>Forecast</li>
             </span>
           </NavLink>
           <NavLink
@@ -61,9 +61,9 @@ const SideNavigation = () => {
             style={linkStyles}
             to={"./Calender"}
           >
-            <span className="flex gap-2">
+              <span  className={Styles.span1 + " flex gap-2 "}>
               <CalendarTodayIcon />
-              <li>Calentender</li>
+              <li className={Styles.li1}>Calentender</li>
             </span>
           </NavLink>
           <NavLink
@@ -71,8 +71,8 @@ const SideNavigation = () => {
             style={linkStyles}
             to={"./Analytics"}
           >
-            <span className="flex gap-2">
-              <TrackChangesIcon /> <li>Analytics</li>
+              <span  className={Styles.span1 + " flex gap-2 "}>
+              <TrackChangesIcon /> <li className={Styles.li1}>Analytics</li>
             </span>
           </NavLink>
           <NavLink
@@ -80,9 +80,9 @@ const SideNavigation = () => {
             style={linkStyles}
             to={"./Location"}
           >
-            <span className="flex gap-2">
+              <span  className={Styles.span1 + " flex gap-2 "}>
               <LocationOnIcon />
-              <li>Locations</li>
+              <li className={Styles.li1}>Locations</li>
             </span>
           </NavLink>
           <NavLink
@@ -90,9 +90,9 @@ const SideNavigation = () => {
             style={linkStyles}
             to={"./Settings"}
           >
-            <span className="flex gap-2">
+              <span  className={Styles.span1 + " flex gap-2 "}>
               <SettingsIcon />
-              <li>Settings</li>
+              <li className={Styles.li1}>Settings</li>
             </span>
           </NavLink>
         </ul>

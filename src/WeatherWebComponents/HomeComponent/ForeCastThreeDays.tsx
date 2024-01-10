@@ -6,9 +6,8 @@ import { useSelector } from "react-redux";
 import { findMax, findMin } from "../getWeatherData/returnMaxMin";
 
 const ForeCastThreeDays = () => {
-  const { hourlyTemperature: temperature } = useSelector(
-    (store: any) => store.currentWeather
-  );
+   const { cities, index } = useSelector((store: any) => store.currentWeather);
+  // const { hourlyTemperature: temperature }
   const today = new Date();
   const daysOfWeek = [
     "Sunday",
@@ -19,24 +18,24 @@ const ForeCastThreeDays = () => {
     "Friday",
     "Saturday",
   ];
-   const foreCast = [
+  const foreCast = [
     {
       day: daysOfWeek[today.getDay() + 1],
       weather: "Rain",
-      max: findMax(temperature.slice(0, 23)),
-      min: findMin(temperature.slice(0, 23)),
+      max: findMax(cities[index].hourlyTemperature.slice(0, 23)),
+      min: findMin(cities[index].hourlyTemperature.slice(0, 23)),
     },
     {
       day: daysOfWeek[today.getDay() + 2],
       weather: "Sunny",
-      max: findMax(temperature.slice(24, 47)),
-      min: findMin(temperature.slice(24, 47)),
+      max: findMax(cities[index].hourlyTemperature.slice(24, 47)),
+      min: findMin(cities[index].hourlyTemperature.slice(24, 47)),
     },
     {
       day: daysOfWeek[today.getDay() + 3],
       weather: "Cloudy",
-      max: findMax(temperature.slice(48, 71)),
-      min: findMin(temperature.slice(48, 71)),
+      max: findMax(cities[index].hourlyTemperature.slice(48, 71)),
+      min: findMin(cities[index].hourlyTemperature.slice(48, 71)),
     },
   ];
   return (

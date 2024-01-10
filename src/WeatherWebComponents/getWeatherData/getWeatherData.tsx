@@ -1,13 +1,16 @@
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setCurrentDetails } from "../../features/currentWeather";
+import { convertTimestampToTime } from "./convertTimeStamp";
+
+
 const url = `https://api.open-meteo.com/v1/forecast?current=temperature_2m,
 relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,weather_code,wind_speed_10m,
 wind_direction_10m&hourly=temperature_2m,
 precipitation,rain,showers,snowfall,weather_code,visibility,
 wind_speed_10m&daily=weather_code&timeformat=unixtime&past_days=1&forecast_days=3&daily=sunrise,sunset`;
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { setCurrentDetails } from "../../features/currentWeather";
-import { convertTimestampToTime } from "./convertTimeStamp";
-import { currentCity } from "../../features/addCities";
+
+
 export const getWeather = async (
   longi: number,
   lati: number,
@@ -16,7 +19,6 @@ export const getWeather = async (
   // redux action dispatch
   const dispatch = useDispatch();
 
-  // fetcher axios method
   const data = await axios
     .get(url, {
       params: {
@@ -31,7 +33,7 @@ export const getWeather = async (
   console.log(data);
 
   const { current, daily, hourly } = data;
-
+  const {time:cityCurrentTime} = current
   // rain and time hourly
   const {
     rain: hourlyRain,
@@ -62,6 +64,7 @@ export const getWeather = async (
   } = current;
   dispatch(
     setCurrentDetails({
+      cityCurrentTime,
       apparentTemperature,
       temperature,
       precipitation,
@@ -79,5 +82,6 @@ export const getWeather = async (
       hourlyTemperature: hourlyTemperature,
     })
   );
-  dispatch(currentCity(timeZone));
 };
+
+// fetcher axios method

@@ -5,17 +5,18 @@ import { useSelector } from "react-redux";
 import { convertTimestampToTime } from "../getWeatherData/convertTimeStamp";
 const Chances = () => {
   let pre =0;
-
-  const {hourlyRain,hourlyTime} = useSelector((store:any) => store.currentWeather);
+ 
+  const {cities, index} = useSelector((store:any) => store.currentWeather);
+  // const {hourlyRain,hourlyTime}
   return (
-    <div className="bg-[#f5f4fc] w-full   h-[100vh] px-0 py-3">
+    <div className="bg-[#f5f4fc]  w-[100%]   h-[100vh] px-0 py-3">
       <h1 className="text-black text-[1rem] px-2 mb-3 font-semibold">
         Chances of Rain
       </h1>
       {
-      hourlyRain.slice(0, 8).map((d: number, ind: number) => {
+      cities[index].hourlyRain.slice(0, 8).map((d: number, ind: number) => {
         pre +=ind
-        const time = convertTimestampToTime(hourlyTime[pre+3 ]);
+        const time = convertTimestampToTime(cities[index].hourlyTime[pre+3 ]);
         return (
           <div key={ind} className="flex px-3 items-baseline gap-3 w-full mb-2">
             <span className="text-[0.8rem] text-black font-semibold w-[100px] ">{time}</span>

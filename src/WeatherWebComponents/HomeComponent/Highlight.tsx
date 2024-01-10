@@ -7,11 +7,12 @@ import { useSelector } from "react-redux";
 //  import { DatasetLinkedOutlined, MonitorHeart, PhpRounded, RollerShadesSharp } from "@mui/icons-material";
 
 const Highlight = () => {
-  const {humidity, precipitation, windSpeed,sunRiseTime,sunSetTime} = useSelector((s:any)=>s.currentWeather)
-  
-  const data1 = [{name:"Humidity", unit:`${humidity}mm`},{name:"Precipation", unit:`${precipitation}mm`} ,{name:"Wind Speed", unit:`${windSpeed}Km/h`} , {name:"sunrise & Sunset ", unit:''}];
+  const {cities, index} = useSelector((s:any)=>s.currentWeather)
+ 
+  // const {humidity, precipitation, windSpeed,sunRiseTime,sunSetTime}
+  const data1 = [{name:"Humidity", unit:`${cities[index].humidity}%`},{name:"Precipation", unit:`${cities[index].precipitation}mm`} ,{name:"Wind Speed", unit:`${cities[index].windSpeed}Km/h`} , {name:"sunrise & Sunset ", unit:''}];
   return (
-    <div className="pt-4">
+    <div className="pt-4 w-[100%]">
       <h1 className="text-[1.2rem] text-black font-semibold mb-3">
         Today's Highlight
       </h1>
@@ -28,10 +29,10 @@ const Highlight = () => {
                 <div className="flex gap-2 px-2">
                   <ArrowUpwardIcon className="text-white bg-[--weather-secondary-color] rounded-full" />
                   <p className="self-center font-bold text-[1rem] mr-2">
-                   {sunRiseTime}
+                   {cities[index].sunRiseTime}
                   </p>
                   <ArrowDownwardIcon className="text-white bg-[--weather-secondary-color] rounded-full" />
-                  <p className="self-center font-bold text-[1rem]">{sunSetTime}</p>
+                  <p className="self-center font-bold text-[1rem]">{cities[index].sunSetTime}</p>
                 </div>
               ) : (
                 <p className="self-center font-bold text-[1rem]">{}{d.unit}</p>

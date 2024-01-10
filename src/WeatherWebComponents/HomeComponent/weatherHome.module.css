@@ -5,3 +5,6 @@
     background-size: cover;
 
 }
+span{
+    color: var(--weather-primary-color);
+}

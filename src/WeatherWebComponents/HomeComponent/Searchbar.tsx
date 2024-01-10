@@ -29,7 +29,7 @@ const Search = styled("div")(({ theme }) => ({
   },
   marginTop: theme.spacing(2),
 
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("md")]: {
     width: "auto",
   },
   "& .css-1oqqzyl-MuiContainer-root": {
@@ -46,17 +46,17 @@ const SearchBar = () => {
   
   const dispatch = useDispatch();
   return (
-    <div className="flex w-full  justify-between h-auto items-baseline pb-3 pl-3">
+    <div className="flex md:w-full w-[100%]  justify-between h-auto items-baseline pb-3 pl-3">
       <Button
         onClick={() => dispatch(setNav())}
         shape="circle"
         type="link"
-        className={`${show&& 'z-[9999] ml-[150px] ' }  sm:hidden bg-[--weather-primary-color] text-[--color-white]  flex justify-center items-center`}
+        className={`${show&& 'z-[9999] ml-[150px] ' }  md:hidden bg-[--weather-primary-color] text-[--color-white]  flex justify-center items-center`}
       >
-     { !show?  <MenuIcon className="sm:hidden flex " />:<CloseIcon/>}
+     { !show?  <MenuIcon className="md:hidden flex " />:<CloseIcon/>}
         
       </Button>
-      <Search className="px-2 w-1/2">
+      {/* <Search className="px-2 w-1/2">
         <div className=" w-full  flex ">
           <StyledInputBase
             className=""
@@ -77,7 +77,7 @@ const SearchBar = () => {
         <IconButton>
           <AccountCircleIcon />
         </IconButton>
-      </div>
+      </div> */}
     </div>
   );
 };

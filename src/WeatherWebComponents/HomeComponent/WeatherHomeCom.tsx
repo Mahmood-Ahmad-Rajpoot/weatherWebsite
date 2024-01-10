@@ -8,7 +8,7 @@ function WeatherHomeCom() {
     <div className=' pt-2'>
       <Searchbar/>
         <hr className='border-2'/>
-      <div className='flex sm:flex-row flex-col gap-2'>
+      <div className='flex md:flex-row flex-col gap-2'>
         <CityWeather/>
         <Chances/>
       </div>

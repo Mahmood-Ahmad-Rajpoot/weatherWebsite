@@ -5,14 +5,12 @@
   justify-content: left;
   gap: 35px;
 }
-/* .ulStyles span:hover{
-    background: var(--weather-secondary-color);
-} */
-.ulStyles li,span,.navLinksStyles:hover {
-  color: var(--color-white);
+ 
+.ulStyles .li1,.span1,.navLinksStyles:hover {
+  color: var(--color-white) ;
 
 }
-.ulStyles span {
+.ulStyles .span1 {
   padding: 5px 0px;
 }
 .navLinksStyles {
